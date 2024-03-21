@@ -44,8 +44,8 @@ jobs:
         with:
           name: "sExy-${{ env.SEXY_KERNEL_VERSION }}-[Note 10]"
           path: |
-            out/sExy*.xz
-            out/KSU*.xz
+            out/sExy*.zip
+            out/KSU*.zip
 
       - name: Create release
         uses: ncipollo/release-action@v1
@@ -55,5 +55,6 @@ jobs:
           draft: false
           prerelease: false
           token: ${{ secrets.TOKEN }}          
-          artifacts: "out/sExy*.xz,out/KSU*.xz"
+          artifacts: "out/sExy*.zip,out/KSU*.zip"
           body: "Commit SHA: ${{ github.sha }}"
+

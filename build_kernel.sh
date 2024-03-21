@@ -82,9 +82,8 @@ packing() {
 
 tar_xz() {
     cd "$work_dir/out"
-    tar -cvf "sExy [${DEVICE}].tar" ./*
-    xz -9 --threads=0 "sExy [${DEVICE}].tar"
-    mv "sExy [${DEVICE}].tar.xz" "sExy [${DEVICE}]-${current_datetime}.xz"
+    zip -r -9 "sExy [${DEVICE}].zip" "${DEVICE}"
+    mv "sExy [${DEVICE}].zip" "sExy [${DEVICE}]-${current_datetime}.zip"
     cd "$work_dir"
     echo -e "\n\n[i] Compilation Done..🌛"
 }
@@ -265,9 +264,14 @@ build_ksu(){
 
     tar_xz_ksu() {
         cd "$work_dir/out"
+<<<<<<< HEAD
         tar -cvf "sExy [${DEVICE}][KSU].tar" "${DEVICE}-KSU"
         xz -9 --threads=0 "sExy [${DEVICE}][KSU].tar"
         mv "sExy [${DEVICE}][KSU].tar.xz" "KSU-sExy [${DEVICE}]-${current_datetime}.xz"
+=======
+        zip -r -9 "LPoS [${DEVICE}][KSU].zip" "${DEVICE}-KSU"
+        mv "LPoS [${DEVICE}][KSU].zip" "KSU-LPoS [${DEVICE}]-${current_datetime}.zip"
+>>>>>>> 01ffa43d0 (Final release as a zip)
         cd "$work_dir"
         echo -e "\n\n[i] KSU Compilation Done..🌛\n"
     }
