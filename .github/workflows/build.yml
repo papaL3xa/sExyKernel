@@ -23,7 +23,7 @@ jobs:
         run: |
           sudo apt update -y   
           sudo apt install libncurses5-dev python2 libtinfo5 -y      
-          bash init_clang_12.sh
+          bash init_clang_13.sh
           
       - name: Set environment variable
         run: |
@@ -57,4 +57,3 @@ jobs:
           token: ${{ secrets.TOKEN }}          
           artifacts: "out/sExy*.zip,out/KSU*.zip"
           body: "Commit SHA: ${{ github.sha }}"
-
