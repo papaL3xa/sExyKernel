@@ -25,16 +25,11 @@ mkdir out || true
 export current_datetime=$(date +"%Y-%m-%d_%H-%M-%S")
 #export SEXY_KERNEL_VERSION="v1.0-stable"
 export DEVICE="Note 10"
-<<<<<<< HEAD
-export KBUILD_BUILD_USER="@papaL3xa"
-=======
 export KBUILD_BUILD_USER="@ravindu644"
 export LLVM=1
 export ARCH=arm64
 export PLATFORM_VERSION=12
 export ANDROID_MAJOR_VERSION=s
-
->>>>>>> 84f294d8a (Build with Proton clang 13 :))
 export ARGS="
 CC=clang
 LD=ld.lld
@@ -276,14 +271,8 @@ build_ksu(){
 
     tar_xz_ksu() {
         cd "$work_dir/out"
-<<<<<<< HEAD
-        tar -cvf "sExy [${DEVICE}][KSU].tar" "${DEVICE}-KSU"
-        xz -9 --threads=0 "sExy [${DEVICE}][KSU].tar"
-        mv "sExy [${DEVICE}][KSU].tar.xz" "KSU-sExy [${DEVICE}]-${current_datetime}.xz"
-=======
-        zip -r -9 "LPoS [${DEVICE}][KSU].zip" "${DEVICE}-KSU"
-        mv "LPoS [${DEVICE}][KSU].zip" "KSU-LPoS [${DEVICE}]-${current_datetime}.zip"
->>>>>>> 01ffa43d0 (Final release as a zip)
+        zip -r -9 "sExy [${DEVICE}][KSU].zip" "${DEVICE}-KSU"
+        mv "sExy [${DEVICE}][KSU].zip" "sExy-LPoS [${DEVICE}]-${current_datetime}.zip"
         cd "$work_dir"
         echo -e "\n\n[i] KSU Compilation Done..🌛\n"
     }
