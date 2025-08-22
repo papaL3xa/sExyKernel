@@ -22,9 +22,9 @@ mkdir out || true
 
 #exporting variables
 export current_datetime=$(date +"%Y-%m-%d_%H-%M-%S")
-#export LPOS_KERNEL_VERSION="v8.6.2-stable"
+#export SEXY_KERNEL_VERSION="v1.0-stable"
 export DEVICE="Note 10"
-export KBUILD_BUILD_USER="@ravindu644"
+export KBUILD_BUILD_USER="@papaL3xa"
 export ARGS="
 ARCH=arm64
 PLATFORM_VERSION=12
@@ -76,15 +76,15 @@ packing() {
     fi
     cp "${VBMETA}" .
     sudo chmod +777 *
-    tar -cvf "LPoS ${LPOS_KERNEL_VERSION} [${DEVICE}] - ${SELINUX_STATUS}.tar" boot.img dt.img vbmeta.img ; rm boot.img dt.img vbmeta.img
-    mv "LPoS ${LPOS_KERNEL_VERSION} [${DEVICE}] - ${SELINUX_STATUS}.tar" "${DEVICE}/${SELINUX_STATUS}"
+    tar -cvf "sExy ${SEXY_KERNEL_VERSION} [${DEVICE}] - ${SELINUX_STATUS}.tar" boot.img dt.img vbmeta.img ; rm boot.img dt.img vbmeta.img
+    mv "sExy ${SEXY_KERNEL_VERSION} [${DEVICE}] - ${SELINUX_STATUS}.tar" "${DEVICE}/${SELINUX_STATUS}"
 }
 
 tar_xz() {
     cd "$work_dir/out"
-    tar -cvf "LPoS [${DEVICE}].tar" ./*
-    xz -9 --threads=0 "LPoS [${DEVICE}].tar"
-    mv "LPoS [${DEVICE}].tar.xz" "LPoS [${DEVICE}]-${current_datetime}.xz"
+    tar -cvf "sExy [${DEVICE}].tar" ./*
+    xz -9 --threads=0 "sExy [${DEVICE}].tar"
+    mv "sExy [${DEVICE}].tar.xz" "sExy [${DEVICE}]-${current_datetime}.xz"
     cd "$work_dir"
     echo -e "\n\n[i] Compilation Done..🌛"
 }
@@ -126,7 +126,7 @@ deep_clean(){
     make ${ARGS} clean && make ${ARGS} mrproper
 }
 
-lpos_defaults() {
+sExy_defaults() {
 
     replace_config_option() {
         sed -i "s/^$1=.*/$1=$2/" "$config_file"
@@ -140,7 +140,7 @@ lpos_defaults() {
 clean_build() {
     cd "$work_dir"
     make ${ARGS} clean && make ${ARGS} mrproper
-    lpos_defaults
+    sExy_defaults
 
     #patching allowlist for non-gki
     if [ ! -f ".allowlist_patched" ]; then
@@ -256,8 +256,8 @@ build_ksu(){
             fi
             cp "${VBMETA}" .
             sudo chmod +777 *
-            tar -cvf "LPoS ${LPOS_KERNEL_VERSION} [KSU] [${DEVICE}] - ${SELINUX_STATUS}.tar" boot.img dt.img vbmeta.img ; rm boot.img dt.img vbmeta.img
-            mv "LPoS ${LPOS_KERNEL_VERSION} [KSU] [${DEVICE}] - ${SELINUX_STATUS}.tar" "${DEVICE}-KSU/${SELINUX_STATUS}"
+            tar -cvf "sExy ${SEXY_KERNEL_VERSION} [KSU] [${DEVICE}] - ${SELINUX_STATUS}.tar" boot.img dt.img vbmeta.img ; rm boot.img dt.img vbmeta.img
+            mv "sExy ${SEXY_KERNEL_VERSION} [KSU] [${DEVICE}] - ${SELINUX_STATUS}.tar" "${DEVICE}-KSU/${SELINUX_STATUS}"
             }
 
         #==== end of core ====
@@ -265,9 +265,9 @@ build_ksu(){
 
     tar_xz_ksu() {
         cd "$work_dir/out"
-        tar -cvf "LPoS [${DEVICE}][KSU].tar" "${DEVICE}-KSU"
-        xz -9 --threads=0 "LPoS [${DEVICE}][KSU].tar"
-        mv "LPoS [${DEVICE}][KSU].tar.xz" "KSU-LPoS [${DEVICE}]-${current_datetime}.xz"
+        tar -cvf "sExy [${DEVICE}][KSU].tar" "${DEVICE}-KSU"
+        xz -9 --threads=0 "sExy [${DEVICE}][KSU].tar"
+        mv "sExy [${DEVICE}][KSU].tar.xz" "KSU-sExy [${DEVICE}]-${current_datetime}.xz"
         cd "$work_dir"
         echo -e "\n\n[i] KSU Compilation Done..🌛\n"
     }
